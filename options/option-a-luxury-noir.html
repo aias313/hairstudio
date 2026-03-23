@@ -87,6 +87,7 @@
       color: var(--void);
       background: var(--gold);
       text-decoration: none;
+      appearance: none;
       transition: background 0.25s, color 0.25s;
     }
     .btn:hover { background: transparent; color: var(--gold); }
@@ -136,6 +137,17 @@
     }
     .hero-copy .links a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--gold-dim); padding-bottom: 2px; }
     .hero-copy .links a:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-copy .links button {
+      color: var(--ink);
+      text-decoration: none;
+      border: none;
+      border-bottom: 1px solid var(--gold-dim);
+      padding: 0 0 2px;
+      background: transparent;
+      font: inherit;
+      cursor: pointer;
+    }
+    .hero-copy .links button:hover { border-color: var(--gold); color: var(--gold); }
     @keyframes rise {
       from { opacity: 0; transform: translateY(28px); }
       to { opacity: 1; transform: none; }
@@ -218,7 +230,7 @@
   <div class="wrap">
     <header>
       <a class="logo" href="#">Hair <span>·</span> Nicole</a>
-      <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">Reserve</a>
+      <button type="button" class="btn" data-booking-trigger>Reserve</button>
     </header>
 
     <div class="hero">
@@ -229,7 +241,7 @@
           One guest at a time — precision cutting, bespoke colour, and unrushed attention in an independent Kanata studio.
         </p>
         <div class="links">
-          <a href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">Book</a>
+          <button type="button" data-booking-trigger>Book</button>
           <a href="https://instagram.com/hairbynicole" target="_blank" rel="noopener">Instagram</a>
           <a href="mailto:hello@hairbynicole.ca">Correspondence</a>
         </div>
@@ -274,7 +286,7 @@
 
     <div class="cta" id="book">
       <p>Tuesday–Saturday. Studio address arrives with your confirmation.</p>
-      <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">Book appointment</a>
+      <button type="button" class="btn" data-booking-trigger>Book appointment</button>
     </div>
 
     <footer id="contact">
@@ -283,6 +295,23 @@
       <p class="hours">Tue–Thu 10–7 · Fri 9–6 · Sat 9–5 · Sun–Mon closed</p>
     </footer>
   </div>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+  <script id="anywhere_book_now_script" src="https://assets.setmore.com/integration/book-now/live/v1/anywhere-book-now.js"></script>
+  <button
+    type="button"
+    id="Anywhere_button_iframe"
+    class="anywhere-book-now-button"
+    style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;"
+    data-booking-url="https://hairbynicole.setmore.com"
+    data-new-tab="false"
+    aria-hidden="true"
+    tabindex="-1"
+  >Book now</button>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+    const setmoreButton = document.getElementById("Anywhere_button_iframe");
+    document.querySelectorAll("[data-booking-trigger]").forEach((trigger) => {
+      trigger.addEventListener("click", () => setmoreButton?.click());
+    });
+  </script>
 </body>
 </html>

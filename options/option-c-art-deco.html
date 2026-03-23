@@ -97,6 +97,7 @@
       color: var(--cream);
       border: 2px solid var(--brass);
       text-decoration: none;
+      appearance: none;
       transition: background 0.25s, color 0.25s;
     }
     .btn:hover { background: var(--brass); color: var(--deep); }
@@ -208,7 +209,7 @@
       <a class="logo" href="#">Hair <span>by</span> Nicole</a>
       <p class="sub">Kanata · Private studio</p>
       <div class="btn-row">
-        <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">Reserve seating</a>
+        <button type="button" class="btn" data-booking-trigger>Reserve seating</button>
       </div>
     </header>
 
@@ -260,7 +261,7 @@
 
     <div class="cta" id="book">
       <p>Tuesday through Saturday. Address enclosed with booking.</p>
-      <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">Open calendar</a>
+      <button type="button" class="btn" data-booking-trigger>Open calendar</button>
     </div>
 
     <footer id="contact">
@@ -269,6 +270,23 @@
       Tue–Thu 10–7 · Fri 9–6 · Sat 9–5
     </footer>
   </div>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+  <script id="anywhere_book_now_script" src="https://assets.setmore.com/integration/book-now/live/v1/anywhere-book-now.js"></script>
+  <button
+    type="button"
+    id="Anywhere_button_iframe"
+    class="anywhere-book-now-button"
+    style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;"
+    data-booking-url="https://hairbynicole.setmore.com"
+    data-new-tab="false"
+    aria-hidden="true"
+    tabindex="-1"
+  >Book now</button>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+    const setmoreButton = document.getElementById("Anywhere_button_iframe");
+    document.querySelectorAll("[data-booking-trigger]").forEach((trigger) => {
+      trigger.addEventListener("click", () => setmoreButton?.click());
+    });
+  </script>
 </body>
 </html>

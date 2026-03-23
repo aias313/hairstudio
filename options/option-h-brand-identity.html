@@ -274,6 +274,7 @@
       background: var(--ink);
       color: #fff;
       text-decoration: none;
+      appearance: none;
       transition: background 0.2s, color 0.2s;
     }
     .btn:hover { background: #fff; color: var(--ink); }
@@ -430,7 +431,7 @@
         <p class="fine">Pricing reflects time, product, and hair — quoted before the service begins.</p>
 
         <div class="actions" id="book">
-          <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">Book appointment</a>
+          <button type="button" class="btn" data-booking-trigger>Book appointment</button>
           <a class="btn btn-ghost" href="mailto:hello@hairbynicole.ca">Email</a>
           <span class="links-inline">
             <a href="https://instagram.com/hairbynicole" target="_blank" rel="noopener">Instagram</a>
@@ -440,7 +441,7 @@
 
       <div class="cta-panel">
         <p>Tuesday–Saturday · Studio address included in your booking confirmation.</p>
-        <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">Open calendar</a>
+        <button type="button" class="btn" data-booking-trigger>Open calendar</button>
       </div>
 
       <footer class="board-pad" id="contact">
@@ -455,8 +456,23 @@
     </article>
   </div>
 
+  <script id="anywhere_book_now_script" src="https://assets.setmore.com/integration/book-now/live/v1/anywhere-book-now.js"></script>
+  <button
+    type="button"
+    id="Anywhere_button_iframe"
+    class="anywhere-book-now-button"
+    style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;"
+    data-booking-url="https://hairbynicole.setmore.com"
+    data-new-tab="false"
+    aria-hidden="true"
+    tabindex="-1"
+  >Book now</button>
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+    const setmoreButton = document.getElementById("Anywhere_button_iframe");
+    document.querySelectorAll("[data-booking-trigger]").forEach((trigger) => {
+      trigger.addEventListener("click", () => setmoreButton?.click());
+    });
   </script>
 </body>
 </html>

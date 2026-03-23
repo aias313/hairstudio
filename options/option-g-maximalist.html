@@ -90,6 +90,7 @@
       color: #fff;
       text-decoration: none;
       border: 4px solid var(--ink);
+      appearance: none;
       box-shadow: 8px 8px 0 var(--coral);
       transform: rotate(2deg);
       transition: transform 0.2s, box-shadow 0.2s;
@@ -225,7 +226,7 @@
           <a class="logo" href="#">HAIR <span>BY</span> NICOLE</a>
           <p class="scribble">yes it’s really just us two in the room</p>
         </div>
-        <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">BOOK IT</a>
+        <button type="button" class="btn" data-booking-trigger>BOOK IT</button>
       </header>
 
       <div class="hero">
@@ -289,7 +290,7 @@
 
       <div class="cta" id="book">
         <p>TUE–SAT · ADDRESS IN YOUR CONFIRMATION (we’re not mysterious on purpose)</p>
-        <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">GRAB A SPOT</a>
+        <button type="button" class="btn" data-booking-trigger>GRAB A SPOT</button>
       </div>
 
       <footer id="contact">
@@ -298,6 +299,23 @@
       </footer>
     </div>
   </div>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+  <script id="anywhere_book_now_script" src="https://assets.setmore.com/integration/book-now/live/v1/anywhere-book-now.js"></script>
+  <button
+    type="button"
+    id="Anywhere_button_iframe"
+    class="anywhere-book-now-button"
+    style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;"
+    data-booking-url="https://hairbynicole.setmore.com"
+    data-new-tab="false"
+    aria-hidden="true"
+    tabindex="-1"
+  >Book now</button>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+    const setmoreButton = document.getElementById("Anywhere_button_iframe");
+    document.querySelectorAll("[data-booking-trigger]").forEach((trigger) => {
+      trigger.addEventListener("click", () => setmoreButton?.click());
+    });
+  </script>
 </body>
 </html>

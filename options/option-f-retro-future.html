@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concept F — Retro-future · Hair by Nicole</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --void: #070d18;
+      --panel: #0f1a2e;
+      --cyan: #3ee8ff;
+      --hot: #ff4d8d;
+      --text: #c8d4e8;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Exo 2", sans-serif;
+      font-weight: 400;
+      background: var(--void);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.55;
+      min-height: 100dvh;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(62, 232, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(62, 232, 255, 0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      z-index: 0;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(255, 77, 141, 0.12), transparent 55%);
+      z-index: 0;
+    }
+    .preview-strip {
+      position: relative;
+      z-index: 2;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 10px;
+      background: var(--panel);
+      border-bottom: 1px solid rgba(62, 232, 255, 0.25);
+      color: var(--cyan);
+    }
+    .preview-strip a { color: #fff; text-decoration: none; }
+    .wrap { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 32px clamp(18px, 4vw, 36px) 64px; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(62, 232, 255, 0.2);
+    }
+    .logo {
+      font-family: "Chakra Petch", sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      text-decoration: none;
+      text-shadow: 0 0 24px rgba(62, 232, 255, 0.4);
+    }
+    .logo span { color: var(--hot); }
+    .btn {
+      font-family: "Chakra Petch", sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 12px 22px;
+      border: 1px solid var(--cyan);
+      color: var(--void);
+      background: var(--cyan);
+      text-decoration: none;
+      clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover {
+      background: var(--hot);
+      border-color: var(--hot);
+      color: #fff;
+      box-shadow: 0 0 28px rgba(255, 77, 141, 0.45);
+    }
+    .hero {
+      display: grid;
+      gap: 28px;
+      margin-bottom: 36px;
+    }
+    @media (min-width: 760px) {
+      .hero { grid-template-columns: 1fr 320px; align-items: start; }
+    }
+    .glitch-wrap { position: relative; }
+    h1 {
+      font-family: "Chakra Petch", sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 2.85rem);
+      line-height: 1.05;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+    h1 span { color: var(--hot); }
+    @keyframes glitch {
+      0%, 100% { text-shadow: 2px 0 var(--cyan), -2px 0 var(--hot); }
+      25% { text-shadow: -1px 0 var(--cyan), 1px 0 var(--hot); }
+      50% { text-shadow: 1px 0 var(--hot), -1px 0 var(--cyan); }
+    }
+    .glitch-wrap h1 { animation: glitch 4s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) {
+      .glitch-wrap h1 { animation: none; text-shadow: none; }
+    }
+    .meta {
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 12px;
+      opacity: 0.85;
+    }
+    .lede { color: #9aacbf; margin-bottom: 20px; max-width: 36em; }
+    .links { display: flex; gap: 20px; font-size: 14px; font-weight: 500; }
+    .links a { color: var(--cyan); text-decoration: none; }
+    .links a:hover { color: var(--hot); }
+    figure {
+      margin: 0;
+      border: 1px solid rgba(62, 232, 255, 0.35);
+      padding: 12px;
+      background: var(--panel);
+      box-shadow: 0 0 40px rgba(62, 232, 255, 0.08);
+    }
+    figure img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      filter: saturate(1.1) contrast(1.05);
+    }
+    figcaption {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #7a8fa8;
+      margin-top: 12px;
+      line-height: 1.45;
+    }
+    h2 {
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hot);
+      margin-bottom: 16px;
+    }
+    .svc {
+      border: 1px solid rgba(62, 232, 255, 0.2);
+      background: rgba(15, 26, 46, 0.6);
+    }
+    .svc-row {
+      display: grid;
+      gap: 8px;
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(62, 232, 255, 0.12);
+    }
+    @media (min-width: 560px) {
+      .svc-row { grid-template-columns: 140px 1fr 80px; align-items: center; }
+    }
+    .svc-row:last-child { border-bottom: none; }
+    .svc-name { font-family: "Chakra Petch", sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cyan); }
+    .svc-desc { font-size: 14px; color: #9aacbf; }
+    .svc-price { font-weight: 600; color: var(--hot); }
+    @media (min-width: 560px) {
+      .svc-price { text-align: right; }
+    }
+    .fine { font-size: 13px; color: #7a8fa8; margin-top: 16px; font-style: italic; }
+    .cta {
+      margin-top: 40px;
+      padding: 32px 24px;
+      text-align: center;
+      border: 1px solid rgba(255, 77, 141, 0.4);
+      background: linear-gradient(135deg, rgba(255, 77, 141, 0.12), rgba(62, 232, 255, 0.08));
+    }
+    .cta p { margin-bottom: 18px; color: #9aacbf; }
+    footer {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(62, 232, 255, 0.15);
+      font-size: 12px;
+      color: #7a8fa8;
+      text-align: center;
+      line-height: 1.7;
+    }
+    footer a { color: var(--cyan); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <p class="preview-strip"><a href="../present.html">← All concepts</a> · <strong>F · Retro-future</strong></p>
+  <div class="wrap">
+    <header>
+      <a class="logo" href="#">Hair<span>_</span>Nicole</a>
+      <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">Initiate</a>
+    </header>
+
+    <div class="hero">
+      <div>
+        <p class="meta">Kanata · Private uplink</p>
+        <div class="glitch-wrap">
+          <h1>Next-gen <span>hair</span><br />Analog calm</h1>
+        </div>
+        <p class="lede">One chair, one stylist, zero noise floor. Cuts, colour, and blonding for humans who like good light and better playlists.</p>
+        <div class="links">
+          <a href="https://instagram.com/hairbynicole" target="_blank" rel="noopener">Feed</a>
+          <a href="mailto:hello@hairbynicole.ca">Signal</a>
+        </div>
+      </div>
+      <figure>
+        <img
+          src="https://placehold.co/320x400/0f1a2e/3ee8ff/png?text=NEON+RIM+%2B+DARK"
+          alt="Placeholder: portrait with cyan/magenta rim light against deep blue — sci-fi lounge, not horror."
+          width="320"
+          height="400"
+        />
+        <figcaption>Photo: colored gels + dark background. Synth-night energy, still professional.</figcaption>
+      </figure>
+    </div>
+
+    <section id="services">
+      <h2>Service matrix</h2>
+      <div class="svc">
+        <div class="svc-row">
+          <div class="svc-name">Cut</div>
+          <div class="svc-desc">Precision cut &amp; style, blowout finish.</div>
+          <div class="svc-price">$65+</div>
+        </div>
+        <div class="svc-row">
+          <div class="svc-name">Colour</div>
+          <div class="svc-desc">Full colour, highlights, balayage, gloss.</div>
+          <div class="svc-price">$120+</div>
+        </div>
+        <div class="svc-row">
+          <div class="svc-name">Blonding</div>
+          <div class="svc-desc">Dimensional blondes &amp; lived-in light.</div>
+          <div class="svc-price">$180+</div>
+        </div>
+        <div class="svc-row">
+          <div class="svc-name">Extra</div>
+          <div class="svc-desc">Treatments &amp; events — coordinate at booking.</div>
+          <div class="svc-price">$80+</div>
+        </div>
+      </div>
+      <p class="fine">Base rates — final scan at consult.</p>
+    </section>
+
+    <div class="cta" id="book">
+      <p>TUE–SAT · Coordinates transmitted with confirmation.</p>
+      <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">Book sequence</a>
+    </div>
+
+    <footer id="contact">
+      © <span id="y"></span> Hair by Nicole · <a href="mailto:hello@hairbynicole.ca">hello@hairbynicole.ca</a><br />
+      Tue–Thu 10–7 · Fri 9–6 · Sat 9–5
+    </footer>
+  </div>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

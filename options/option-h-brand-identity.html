@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hair by Nicole — Kanata. Brand-inspired salon identity presentation." />
+  <title>Concept H — Brand identity · Hair by Nicole</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,opsz,wght@0,7..144,400;0,7..144,500;0,7..144,600;1,7..144,400&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper: #faf7f2;
+      --paper-2: #f0ebe3;
+      --ink: #1f1c1a;
+      --ink-soft: #5c5650;
+      --accent: #a67c7e;
+      --accent-2: #8b7355;
+      --line: rgba(31, 28, 26, 0.12);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Crimson Pro", Georgia, serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.55;
+      min-height: 100dvh;
+    }
+    .preview-strip {
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 10px 14px;
+      background: var(--ink);
+      color: #b8b0a8;
+      line-height: 1.5;
+    }
+    .preview-strip a { color: #fff; font-weight: 600; text-decoration: none; }
+    .preview-strip a.ref { color: #d4c4b0; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 48px clamp(20px, 5vw, 40px) 72px; }
+    .board {
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 60px rgba(31, 28, 26, 0.06);
+    }
+    .board-pad { padding: clamp(28px, 6vw, 48px); }
+    .label {
+      font-family: system-ui, sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      margin-bottom: 20px;
+    }
+    .mark-block {
+      text-align: center;
+      padding: clamp(32px, 8vw, 56px) 24px;
+      position: relative;
+      border-bottom: 1px solid var(--line);
+    }
+    .mark-block::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -52%);
+      width: min(420px, 90%);
+      height: 140px;
+      border: 1px solid var(--line);
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    .wordmark {
+      font-family: "Libre Bodoni", Georgia, serif;
+      font-size: clamp(2.5rem, 8vw, 3.75rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      position: relative;
+    }
+    .wordmark span {
+      display: block;
+      font-size: 0.42em;
+      font-weight: 400;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      margin-top: 14px;
+      color: var(--ink-soft);
+    }
+    .tagline {
+      margin-top: 18px;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--ink-soft);
+    }
+    .mono-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(24px, 6vw, 48px);
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+    .monogram {
+      width: 88px;
+      height: 88px;
+      border: 1.5px solid var(--ink);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: "Libre Bodoni", Georgia, serif;
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.05em;
+      background: var(--paper);
+    }
+    .strand-band {
+      height: 56px;
+      margin: 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background:
+        repeating-linear-gradient(
+          105deg,
+          transparent,
+          transparent 5px,
+          rgba(31, 28, 26, 0.06) 5px,
+          rgba(31, 28, 26, 0.06) 6px
+        ),
+        repeating-linear-gradient(
+          -105deg,
+          transparent,
+          transparent 5px,
+          rgba(166, 124, 126, 0.08) 5px,
+          rgba(166, 124, 126, 0.08) 6px
+        ),
+        var(--paper-2);
+    }
+    .grid-2 {
+      display: grid;
+      gap: 0;
+      border-bottom: 1px solid var(--line);
+    }
+    @media (min-width: 640px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+    }
+    .panel {
+      padding: 28px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    @media (min-width: 640px) {
+      .panel:first-child { border-right: 1px solid var(--line); border-bottom: none; }
+      .panel:last-child { border-bottom: none; }
+    }
+    .swatches {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .sw {
+      flex: 1;
+      min-width: 72px;
+      max-width: 100px;
+      text-align: center;
+    }
+    .sw i {
+      display: block;
+      height: 48px;
+      border: 1px solid var(--line);
+      margin-bottom: 8px;
+    }
+    .sw span {
+      font-family: system-ui, sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .type-spec p {
+      font-size: 15px;
+      margin-bottom: 8px;
+      color: var(--ink-soft);
+    }
+    .type-spec .display {
+      font-family: "Libre Bodoni", Georgia, serif;
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 12px 0;
+    }
+    .hero-mock {
+      padding: 0;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper-2);
+    }
+    .hero-mock img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+    .hero-mock figcaption {
+      padding: 14px 24px 18px;
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.45;
+    }
+    .hero-mock figcaption strong { color: var(--ink); font-style: normal; }
+    .apps .label { margin-bottom: 16px; }
+    .apps h2 {
+      font-family: "Libre Bodoni", Georgia, serif;
+      font-size: 1.75rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .apps .loc {
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      margin-bottom: 20px;
+    }
+    .apps .body { color: var(--ink-soft); margin-bottom: 28px; max-width: 36em; }
+    .svc {
+      border-top: 1px solid var(--line);
+    }
+    .svc-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    @media (min-width: 520px) {
+      .svc-row { grid-template-columns: 1fr 2fr auto; align-items: baseline; gap: 16px; }
+    }
+    .svc-name {
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .svc-desc { font-size: 16px; color: var(--ink-soft); }
+    .svc-price { font-family: "Libre Bodoni", Georgia, serif; font-size: 1.15rem; color: var(--accent); }
+    @media (min-width: 520px) {
+      .svc-price { text-align: right; }
+    }
+    .fine { font-size: 15px; font-style: italic; color: var(--ink-soft); margin-top: 16px; }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-top: 28px;
+    }
+    .btn {
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover { background: #fff; color: var(--ink); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+    }
+    .btn-ghost:hover { background: var(--paper-2); }
+    .links-inline {
+      font-family: system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .links-inline a { color: var(--accent-2); text-decoration: none; border-bottom: 1px solid rgba(139, 115, 85, 0.35); }
+    .links-inline a:hover { border-color: var(--ink); color: var(--ink); }
+    .cta-panel {
+      margin-top: 0;
+      padding: 36px 28px;
+      text-align: center;
+      background: var(--ink);
+      color: #e8e2da;
+    }
+    .cta-panel p { font-size: 16px; opacity: 0.88; margin-bottom: 20px; }
+    .cta-panel .btn {
+      background: #fff;
+      color: var(--ink);
+      border-color: #fff;
+    }
+    .cta-panel .btn:hover { background: transparent; color: #fff; border-color: #fff; }
+    footer.board-pad {
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+      color: var(--ink-soft);
+      text-align: center;
+    }
+    footer.board-pad a { color: var(--ink); font-weight: 600; text-decoration: none; }
+    footer.board-pad .cite {
+      margin-top: 16px;
+      font-size: 12px;
+      line-height: 1.5;
+      max-width: 36em;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    footer.board-pad .cite a {
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: none; }
+    }
+    .mark-block .wordmark,
+    .mark-block .tagline,
+    .mono-row {
+      animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    }
+    .mark-block .tagline { animation-delay: 0.08s; }
+    .mono-row { animation-delay: 0.16s; }
+    @media (prefers-reduced-motion: reduce) {
+      .mark-block .wordmark,
+      .mark-block .tagline,
+      .mono-row { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <p class="preview-strip">
+    <a href="../present.html">← All concepts</a>
+    · <strong>H · Brand identity deck</strong>
+    · Inspired by
+    <a class="ref" href="https://dribbble.com/shots/25185262-Hair-Salon-Brand-Identity-Logo-Design" target="_blank" rel="noopener noreferrer">this Dribbble salon identity shot</a>
+  </p>
+
+  <div class="wrap">
+    <article class="board">
+      <div class="mark-block board-pad">
+        <p class="label">Primary mark</p>
+        <h1 class="wordmark">Hair by Nicole<span>Private studio</span></h1>
+        <p class="tagline">Kanata, Ontario — appointments by design.</p>
+        <div class="mono-row" aria-hidden="true">
+          <div class="monogram">hn</div>
+          <div style="text-align:left;max-width:200px;font-size:14px;color:var(--ink-soft);line-height:1.4;">
+            Sub-mark for social avatars, stamps, and small applications.
+          </div>
+        </div>
+      </div>
+
+      <div class="strand-band" role="presentation" aria-hidden="true"></div>
+
+      <figure class="hero-mock">
+        <img
+          src="https://placehold.co/960x540/faf7f2/5c5650/png?text=Mockup%3A+cards+%2B+foil"
+          width="960"
+          height="540"
+          alt="Placeholder: flat-lay of business cards, embossed wordmark on textured paper, or logo reversed on dark card — like a brand guidelines photo."
+        />
+        <figcaption>
+          <strong>Photography brief:</strong> Identity-style flat-lay — cards, hang tag, or foil-stamped stationery with this wordmark.
+          Keeps the page feeling like a presentation deck, not a stock salon banner.
+        </figcaption>
+      </figure>
+
+      <div class="grid-2">
+        <div class="panel">
+          <p class="label">Colour</p>
+          <div class="swatches">
+            <div class="sw"><i style="background:#faf7f2;"></i><span>Paper</span></div>
+            <div class="sw"><i style="background:#1f1c1a;"></i><span>Espresso</span></div>
+            <div class="sw"><i style="background:#a67c7e;"></i><span>Mauve</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="label">Typography</p>
+          <div class="type-spec">
+            <p>Display &amp; wordmark</p>
+            <p class="display">Libre Bodoni</p>
+            <p>Body &amp; supporting copy</p>
+            <p class="display" style="font-family:'Crimson Pro',serif;font-size:22px;">Crimson Pro</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="board-pad apps" id="services">
+        <p class="label">Applications</p>
+        <h2>Services</h2>
+        <p class="loc">Kanata · Independent stylist</p>
+        <p class="body">
+          Cuts, colour, blonding, and treatments in a one-on-one studio. Starting prices below; your estimate is confirmed at consultation.
+        </p>
+        <div class="svc">
+          <div class="svc-row">
+            <div class="svc-name">Cut &amp; style</div>
+            <div class="svc-desc">All lengths and textures; blowout finish.</div>
+            <div class="svc-price">from $65</div>
+          </div>
+          <div class="svc-row">
+            <div class="svc-name">Colour</div>
+            <div class="svc-desc">Full colour, highlights, balayage, gloss.</div>
+            <div class="svc-price">from $120</div>
+          </div>
+          <div class="svc-row">
+            <div class="svc-name">Blonding</div>
+            <div class="svc-desc">Dimensional, lived-in light.</div>
+            <div class="svc-price">from $180</div>
+          </div>
+          <div class="svc-row">
+            <div class="svc-name">Care &amp; events</div>
+            <div class="svc-desc">Treatments &amp; occasion styling — note when booking.</div>
+            <div class="svc-price">from $80</div>
+          </div>
+        </div>
+        <p class="fine">Pricing reflects time, product, and hair — quoted before the service begins.</p>
+
+        <div class="actions" id="book">
+          <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">Book appointment</a>
+          <a class="btn btn-ghost" href="mailto:hello@hairbynicole.ca">Email</a>
+          <span class="links-inline">
+            <a href="https://instagram.com/hairbynicole" target="_blank" rel="noopener">Instagram</a>
+          </span>
+        </div>
+      </div>
+
+      <div class="cta-panel">
+        <p>Tuesday–Saturday · Studio address included in your booking confirmation.</p>
+        <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">Open calendar</a>
+      </div>
+
+      <footer class="board-pad" id="contact">
+        <p>© <span id="y"></span> Hair by Nicole · <a href="mailto:hello@hairbynicole.ca">hello@hairbynicole.ca</a></p>
+        <p>Tue–Thu 10–7 · Fri 9–6 · Sat 9–5 · Sun–Mon closed</p>
+        <p class="cite">
+          Layout and components echo salon <strong>brand identity</strong> presentations (logotype, monogram, pattern, palette, type specimen).
+          Compare with the reference:
+          <a href="https://dribbble.com/shots/25185262-Hair-Salon-Brand-Identity-Logo-Design" target="_blank" rel="noopener noreferrer">Dribbble — Hair Salon Brand Identity / Logo Design</a>.
+        </p>
+      </footer>
+    </article>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concept G — Maximalist · Hair by Nicole</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Lexend:wght@400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --lemon: #f5e663;
+      --coral: #ff6b5b;
+      --aqua: #4ecdc4;
+      --ink: #1a1a2e;
+      --lav: #e8e4f3;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Lexend", system-ui, sans-serif;
+      background: var(--lav);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.55;
+      min-height: 100dvh;
+      overflow-x: hidden;
+    }
+    .preview-strip {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      text-align: center;
+      padding: 10px;
+      background: var(--ink);
+      color: var(--lemon);
+    }
+    .preview-strip a { color: var(--aqua); text-decoration: none; }
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 28px clamp(16px, 4vw, 32px) 56px;
+      position: relative;
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .b1 { width: 280px; height: 280px; background: var(--coral); top: -40px; right: -60px; }
+    .b2 { width: 220px; height: 220px; background: var(--aqua); bottom: 20%; left: -80px; }
+    .content { position: relative; z-index: 1; }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .logo-block {
+      transform: rotate(-2deg);
+    }
+    .logo {
+      font-family: "Fugaz One", sans-serif;
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      color: var(--ink);
+      text-decoration: none;
+      line-height: 1;
+      text-shadow: 4px 4px 0 var(--lemon);
+    }
+    .logo span { color: var(--coral); }
+    .scribble {
+      font-family: "Permanent Marker", cursive;
+      font-size: 14px;
+      color: var(--coral);
+      margin-top: 8px;
+      transform: rotate(1deg);
+    }
+    .btn {
+      font-family: "Lexend", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 14px 26px;
+      background: var(--ink);
+      color: #fff;
+      text-decoration: none;
+      border: 4px solid var(--ink);
+      box-shadow: 8px 8px 0 var(--coral);
+      transform: rotate(2deg);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: rotate(0deg) scale(1.02); box-shadow: 10px 10px 0 var(--aqua); }
+    .hero {
+      background: #fff;
+      border: 4px solid var(--ink);
+      padding: clamp(24px, 5vw, 36px);
+      margin-bottom: 24px;
+      box-shadow: 12px 12px 0 var(--ink);
+      position: relative;
+    }
+    .hero::before {
+      content: "KANATA!!";
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      font-family: "Permanent Marker", cursive;
+      font-size: 13px;
+      background: var(--lemon);
+      padding: 4px 12px;
+      border: 2px solid var(--ink);
+      transform: rotate(4deg);
+    }
+    h1 {
+      font-family: "Fugaz One", sans-serif;
+      font-size: clamp(1.85rem, 5vw, 2.6rem);
+      line-height: 1.1;
+      margin-bottom: 14px;
+      max-width: 15em;
+    }
+    .lede { color: #3d3d52; margin-bottom: 18px; max-width: 38em; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 12px;
+      border: 3px solid var(--ink);
+    }
+    .t1 { background: var(--lemon); }
+    .t2 { background: var(--aqua); }
+    .t3 { background: var(--coral); color: #fff; }
+    .links { display: flex; gap: 16px; font-weight: 700; font-size: 14px; }
+    .links a { color: var(--ink); }
+    figure.collage {
+      margin: 0 0 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+    @media (min-width: 640px) {
+      figure.collage { grid-template-columns: 1.4fr 1fr; }
+    }
+    figure.collage img {
+      width: 100%;
+      display: block;
+      border: 4px solid var(--ink);
+    }
+    figure.collage .big { aspect-ratio: 4/3; object-fit: cover; }
+    figure.collage .small { aspect-ratio: 1; object-fit: cover; margin-top: 24px; transform: rotate(3deg); }
+    figure.collage figcaption {
+      grid-column: 1 / -1;
+      font-size: 12px;
+      font-weight: 500;
+      background: var(--lemon);
+      border: 3px solid var(--ink);
+      padding: 12px 14px;
+      margin-top: 4px;
+    }
+    h2 {
+      font-family: "Fugaz One", sans-serif;
+      font-size: 1.35rem;
+      margin-bottom: 16px;
+      transform: skewX(-3deg);
+    }
+    .svc-grid {
+      display: grid;
+      gap: 12px;
+    }
+    @media (min-width: 560px) {
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .svc-card {
+      background: #fff;
+      border: 4px solid var(--ink);
+      padding: 20px 18px;
+      position: relative;
+      transition: transform 0.15s;
+    }
+    .svc-card:nth-child(odd) { transform: rotate(-0.5deg); }
+    .svc-card:nth-child(even) { transform: rotate(0.5deg); background: #faf8ff; }
+    .svc-card:hover { transform: rotate(0deg) scale(1.02); z-index: 2; }
+    .svc-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .svc-card p { font-size: 13px; color: #3d3d52; margin-bottom: 10px; }
+    .svc-card .pr { font-family: "Fugaz One", sans-serif; font-size: 1.1rem; color: var(--coral); }
+    .fine { font-size: 13px; margin-top: 16px; font-weight: 600; }
+    .cta {
+      margin-top: 32px;
+      padding: 32px 24px;
+      background: linear-gradient(135deg, var(--coral), #ff9f8c);
+      border: 4px solid var(--ink);
+      text-align: center;
+      box-shadow: 10px 10px 0 var(--ink);
+    }
+    .cta p { color: #fff; font-weight: 600; margin-bottom: 18px; text-shadow: 1px 1px 0 rgba(0,0,0,0.2); }
+    .cta .btn {
+      background: var(--lemon);
+      color: var(--ink);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+    footer {
+      margin-top: 36px;
+      font-weight: 600;
+      font-size: 13px;
+      text-align: center;
+      line-height: 1.7;
+    }
+    footer a { color: var(--ink); }
+  </style>
+</head>
+<body>
+  <p class="preview-strip"><a href="../present.html">← All concepts</a> · <strong>G · Maximalist / playful</strong></p>
+  <div class="wrap">
+    <div class="blob b1" aria-hidden="true"></div>
+    <div class="blob b2" aria-hidden="true"></div>
+    <div class="content">
+      <header>
+        <div class="logo-block">
+          <a class="logo" href="#">HAIR <span>BY</span> NICOLE</a>
+          <p class="scribble">yes it’s really just us two in the room</p>
+        </div>
+        <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">BOOK IT</a>
+      </header>
+
+      <div class="hero">
+        <div class="tags">
+          <span class="tag t1">Private studio</span>
+          <span class="tag t2">Big hair energy</span>
+          <span class="tag t3">Zero weird vibes</span>
+        </div>
+        <h1>Your hair but louder (metaphorically) (unless you want volume)</h1>
+        <p class="lede">Independent Kanata stylist — cuts, colour, blonding, treatments. One-on-one, no conveyor belt, actually listening.</p>
+        <div class="links">
+          <a href="https://instagram.com/hairbynicole" target="_blank" rel="noopener">IG</a>
+          <a href="mailto:hello@hairbynicole.ca">Email</a>
+        </div>
+      </div>
+
+      <figure class="collage">
+        <img
+          class="big"
+          src="https://placehold.co/520x390/fff/1a1a2e/png?text=BIG+FUN+HERO"
+          alt="Placeholder: bold, saturated photo — laugh mid-blowout, bright wall, confetti or streamers optional."
+          width="520"
+          height="390"
+        />
+        <img
+          class="small"
+          src="https://placehold.co/240x240/4ecdc4/1a1a2e/png?text=DETAIL"
+          alt="Placeholder: tight crop of colour brush, foils, or texture shot — punchy color."
+          width="240"
+          height="240"
+        />
+        <figcaption><strong>Collage brief:</strong> High saturation, playful props OK — still reads pro, not kids’ party.</figcaption>
+      </figure>
+
+      <section id="services">
+        <h2>THE MENU (starts here)</h2>
+        <div class="svc-grid">
+          <div class="svc-card">
+            <h3>Cut &amp; style</h3>
+            <p>Lengths, textures, blowout finish.</p>
+            <span class="pr">from $65</span>
+          </div>
+          <div class="svc-card">
+            <h3>Colour + highlights</h3>
+            <p>Full, partial, balayage, gloss.</p>
+            <span class="pr">from $120</span>
+          </div>
+          <div class="svc-card">
+            <h3>Blonding</h3>
+            <p>Dimensional, lived-in, shiny.</p>
+            <span class="pr">from $180</span>
+          </div>
+          <div class="svc-card">
+            <h3>Treatments / events</h3>
+            <p>Deep care &amp; party hair — ask when booking.</p>
+            <span class="pr">from $80</span>
+          </div>
+        </div>
+        <p class="fine">Starting numbers — real math happens at your consult.</p>
+      </section>
+
+      <div class="cta" id="book">
+        <p>TUE–SAT · ADDRESS IN YOUR CONFIRMATION (we’re not mysterious on purpose)</p>
+        <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">GRAB A SPOT</a>
+      </div>
+
+      <footer id="contact">
+        © <span id="y"></span> HAIR BY NICOLE · <a href="mailto:hello@hairbynicole.ca">HELLO@HAIRBYNICOLE.CA</a><br />
+        Tue–Thu 10–7 · Fri 9–6 · Sat 9–5
+      </footer>
+    </div>
+  </div>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concept C — Art deco · Hair by Nicole</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Josefin+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #ebe6dc;
+      --deep: #1a2e2e;
+      --brass: #b8973f;
+      --ink: #1c1915;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Josefin Sans", sans-serif;
+      font-weight: 300;
+      background-color: var(--cream);
+      background-image:
+        linear-gradient(135deg, rgba(26, 46, 46, 0.04) 25%, transparent 25%),
+        linear-gradient(225deg, rgba(26, 46, 46, 0.04) 25%, transparent 25%),
+        linear-gradient(45deg, rgba(26, 46, 46, 0.04) 25%, transparent 25%),
+        linear-gradient(315deg, rgba(26, 46, 46, 0.04) 25%, var(--cream) 25%);
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 0, 12px -12px, 0 12px;
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.6;
+      min-height: 100dvh;
+    }
+    .preview-strip {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 12px;
+      background: var(--deep);
+      color: var(--brass);
+    }
+    .preview-strip a { color: #fff; text-decoration: none; font-weight: 600; letter-spacing: 0.1em; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 48px clamp(20px, 4vw, 40px) 72px; }
+    .sun {
+      width: 120px;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--brass), transparent);
+      margin: 0 auto 28px;
+      position: relative;
+    }
+    .sun::before, .sun::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--brass), transparent);
+    }
+    .sun::before { top: -10px; }
+    .sun::after { top: 10px; width: 56px; }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .logo {
+      font-family: "Italiana", serif;
+      font-size: clamp(2rem, 6vw, 3rem);
+      color: var(--deep);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      display: inline-block;
+      border-top: 2px solid var(--brass);
+      border-bottom: 2px solid var(--brass);
+      padding: 12px 32px;
+    }
+    .logo span { color: var(--brass); }
+    .sub {
+      margin-top: 20px;
+      font-size: 12px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--deep);
+      font-weight: 600;
+    }
+    .btn-row { margin-top: 28px; }
+    .btn {
+      font-family: "Josefin Sans", sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      background: var(--deep);
+      color: var(--cream);
+      border: 2px solid var(--brass);
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s;
+    }
+    .btn:hover { background: var(--brass); color: var(--deep); }
+    .hero-grid {
+      display: grid;
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    @media (min-width: 720px) {
+      .hero-grid { grid-template-columns: 1fr 300px; gap: 40px; }
+    }
+    h1 {
+      font-family: "Italiana", serif;
+      font-size: clamp(2rem, 4.5vw, 2.75rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--deep);
+      margin-bottom: 16px;
+    }
+    .lede { color: #4a4540; margin-bottom: 20px; }
+    .links { display: flex; flex-wrap: wrap; gap: 16px 24px; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+    .links a { color: var(--deep); text-decoration: none; border-bottom: 1px solid var(--brass); padding-bottom: 2px; }
+    .links a:hover { color: var(--brass); }
+    figure {
+      margin: 0;
+      border: 2px solid var(--brass);
+      padding: 8px;
+      background: var(--deep);
+    }
+    figure img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+    }
+    figcaption {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brass);
+      padding: 12px 8px 4px;
+      line-height: 1.5;
+    }
+    h2 {
+      font-family: "Italiana", serif;
+      font-size: 1.75rem;
+      text-align: center;
+      color: var(--deep);
+      margin: 48px 0 8px;
+    }
+    .rule {
+      width: 60px;
+      height: 2px;
+      background: var(--brass);
+      margin: 0 auto 32px;
+    }
+    .svc {
+      border: 2px solid var(--deep);
+      background: rgba(255, 255, 255, 0.5);
+    }
+    .svc-row {
+      display: grid;
+      padding: 20px 22px;
+      border-bottom: 1px solid rgba(26, 46, 46, 0.2);
+      gap: 8px;
+    }
+    @media (min-width: 560px) {
+      .svc-row { grid-template-columns: 1fr 2fr auto; align-items: center; gap: 20px; }
+    }
+    .svc-row:last-child { border-bottom: none; }
+    .svc-name { font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 13px; color: var(--deep); }
+    .svc-desc { font-size: 15px; color: #4a4540; }
+    .svc-price { font-family: "Italiana", serif; font-size: 1.25rem; color: var(--brass); }
+    @media (min-width: 560px) {
+      .svc-price { text-align: right; }
+    }
+    .fine { text-align: center; font-size: 14px; font-style: italic; color: #5c564e; margin-top: 20px; }
+    .cta {
+      margin-top: 48px;
+      text-align: center;
+      padding: 40px 24px;
+      background: var(--deep);
+      color: var(--cream);
+      border: 2px solid var(--brass);
+      outline: 8px solid rgba(184, 151, 63, 0.2);
+      outline-offset: 4px;
+    }
+    .cta p { margin-bottom: 20px; opacity: 0.9; font-size: 15px; }
+    .cta .btn { background: var(--brass); color: var(--deep); border-color: var(--cream); }
+    .cta .btn:hover { background: var(--cream); }
+    footer {
+      margin-top: 48px;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--deep);
+      line-height: 1.8;
+    }
+    footer a { color: var(--deep); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--brass); }
+  </style>
+</head>
+<body>
+  <p class="preview-strip"><a href="../present.html">← All concepts</a> · <strong>C · Art deco / geometric</strong></p>
+  <div class="wrap">
+    <div class="sun" aria-hidden="true"></div>
+    <header>
+      <a class="logo" href="#">Hair <span>by</span> Nicole</a>
+      <p class="sub">Kanata · Private studio</p>
+      <div class="btn-row">
+        <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">Reserve seating</a>
+      </div>
+    </header>
+
+    <div class="hero-grid">
+      <div>
+        <h1>Geometry in motion — cut, colour, craft.</h1>
+        <p class="lede">A composed, one-to-one experience: consultation, precision work, and finishes that respect your everyday.</p>
+        <div class="links">
+          <a href="https://instagram.com/hairbynicole" target="_blank" rel="noopener">Instagram</a>
+          <a href="mailto:hello@hairbynicole.ca">Post</a>
+        </div>
+      </div>
+      <figure>
+        <img
+          src="https://placehold.co/300x400/1a2e2e/c9b896/png?text=Symmetry+%2B+light"
+          alt="Placeholder: symmetrical portrait in front of arched mirror or art-deco tile — brass tones, deep teal shadows."
+          width="300"
+          height="400"
+        />
+        <figcaption>Photo: symmetry, brass, deep green — period glamour without costume.</figcaption>
+      </figure>
+    </div>
+
+    <h2 id="services">Répertoire</h2>
+    <div class="rule" aria-hidden="true"></div>
+    <div class="svc">
+      <div class="svc-row">
+        <div class="svc-name">Coupe</div>
+        <div class="svc-desc">Cut &amp; style — all lengths, blowout finish.</div>
+        <div class="svc-price">$65</div>
+      </div>
+      <div class="svc-row">
+        <div class="svc-name">Couleur</div>
+        <div class="svc-desc">Colour, highlights, balayage, gloss.</div>
+        <div class="svc-price">$120</div>
+      </div>
+      <div class="svc-row">
+        <div class="svc-name">Blondage</div>
+        <div class="svc-desc">Dimensional blonding &amp; lived-in light.</div>
+        <div class="svc-price">$180</div>
+      </div>
+      <div class="svc-row">
+        <div class="svc-name">Soin</div>
+        <div class="svc-desc">Treatments &amp; occasion styling.</div>
+        <div class="svc-price">$80</div>
+      </div>
+    </div>
+    <p class="fine">From pricing — bespoke quote at appointment.</p>
+
+    <div class="cta" id="book">
+      <p>Tuesday through Saturday. Address enclosed with booking.</p>
+      <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">Open calendar</a>
+    </div>
+
+    <footer id="contact">
+      © <span id="y"></span> Hair by Nicole<br />
+      <a href="mailto:hello@hairbynicole.ca">hello@hairbynicole.ca</a><br />
+      Tue–Thu 10–7 · Fri 9–6 · Sat 9–5
+    </footer>
+  </div>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hair by Nicole — design concepts for review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600&family=Lexend:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Lexend", system-ui, sans-serif;
+      background: #f6f3ef;
+      color: #2a2622;
+      line-height: 1.5;
+      padding: clamp(24px, 5vw, 48px);
+      min-height: 100dvh;
+    }
+    .inner { max-width: 1040px; margin: 0 auto; }
+    h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.85rem, 4vw, 2.35rem);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .sub { color: #5c554e; margin-bottom: 8px; font-size: 1.05rem; max-width: 52em; }
+    .note {
+      font-size: 13px;
+      color: #7a726a;
+      margin-bottom: 28px;
+      max-width: 52em;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.7);
+      border-left: 3px solid #c45c3e;
+      border-radius: 0 8px 8px 0;
+    }
+    .grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 560px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    a.card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: #fff;
+      border: 1px solid #e5dfd6;
+      border-radius: 14px;
+      padding: 18px 18px 20px;
+      transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+      min-height: 100%;
+    }
+    a.card:hover {
+      border-color: #c4a574;
+      box-shadow: 0 10px 36px rgba(42, 38, 34, 0.08);
+      transform: translateY(-2px);
+    }
+    a.card.featured {
+      border-color: #c45c3e;
+      box-shadow: 0 0 0 1px rgba(196, 92, 62, 0.15);
+    }
+    .tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8b6914;
+      margin-bottom: 8px;
+    }
+    a.card.featured .tag { color: #c45c3e; }
+    .card h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .card p { font-size: 13px; color: #5c554e; line-height: 1.45; }
+    .card .go { margin-top: 12px; font-weight: 600; font-size: 13px; color: #a67c2d; }
+    a.card.featured .go { color: #c45c3e; }
+    footer {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid #e5dfd6;
+      font-size: 13px;
+      color: #6b635c;
+    }
+    footer a { color: #2a2622; font-weight: 600; }
+    code { font-size: 12px; background: #eee9e2; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="inner">
+    <h1>Hair by Nicole — page concepts</h1>
+    <p class="sub">Eight intentional directions (per design skill: bold POV, distinctive type, atmosphere, motion where it earns its keep). Open full-screen; use “All concepts” inside each preview to return here.</p>
+    <p class="note"><strong>Kept for Nicole:</strong> <strong>D · Vinyl</strong> — record / tracklist concept. <strong>H</strong> is inspired by a <a href="https://dribbble.com/shots/25185262-Hair-Salon-Brand-Identity-Logo-Design" target="_blank" rel="noopener noreferrer">Dribbble salon brand-identity shot</a> (deck-style layout). Placeholder images include photography briefs.</p>
+
+    <div class="grid">
+      <a class="card" href="options/option-a-luxury-noir.html">
+        <div class="tag">A · Luxury noir</div>
+        <h2>Dark atelier</h2>
+        <p>Marcellus + Cormorant, gold on void, grain and radial glow. Staggered entrance motion. Editorial low-key portrait.</p>
+        <div class="go">Open A →</div>
+      </a>
+      <a class="card" href="options/option-b-brutalist.html">
+        <div class="tag">B · Brutalist</div>
+        <h2>Raw utility</h2>
+        <p>Anton + IBM Plex Mono, thick rules, safety orange CTA, diagonal stripe field. High-contrast B&amp;W photo brief.</p>
+        <div class="go">Open B →</div>
+      </a>
+      <a class="card" href="options/option-c-art-deco.html">
+        <div class="tag">C · Art deco</div>
+        <h2>Geometric glamour</h2>
+        <p>Italiana + Josefin, brass + deep teal, diamond mesh background, sunburst rules. Symmetrical portrait frame.</p>
+        <div class="go">Open C →</div>
+      </a>
+      <a class="card featured" href="options/option-d-funky.html">
+        <div class="tag">D · Vinyl (kept)</div>
+        <h2>Record shop energy</h2>
+        <p>CSS spinning vinyl, tracklist services, marquee, optional lifestyle banner. Matches current <code>index.html</code>.</p>
+        <div class="go">Open D →</div>
+      </a>
+      <a class="card" href="options/option-e-organic.html">
+        <div class="tag">E · Organic</div>
+        <h2>Clay &amp; sage</h2>
+        <p>Fraunces + Hanken Grotesk, wave motif, soft pattern. Earthy studio banner placeholder — plants, linen, daylight.</p>
+        <div class="go">Open E →</div>
+      </a>
+      <a class="card" href="options/option-f-retro-future.html">
+        <div class="tag">F · Retro-future</div>
+        <h2>Neon grid</h2>
+        <p>Chakra Petch + Exo 2, cyan / hot pink on deep navy, subtle glitch on headline (respects reduced motion).</p>
+        <div class="go">Open F →</div>
+      </a>
+      <a class="card" href="options/option-g-maximalist.html">
+        <div class="tag">G · Maximalist</div>
+        <h2>Controlled chaos</h2>
+        <p>Fugaz One + Lexend + marker scribble, stacked shadows, collage hero + detail. Saturated, playful, still pro.</p>
+        <div class="go">Open G →</div>
+      </a>
+      <a class="card" href="options/option-h-brand-identity.html">
+        <div class="tag">H · Brand identity</div>
+        <h2>Deck presentation</h2>
+        <p>Libre Bodoni + Crimson Pro — wordmark, monogram, strand pattern, palette &amp; type panels, stationery mockup. Cites the Dribbble salon identity reference inside the page.</p>
+        <div class="go">Open H →</div>
+      </a>
+    </div>
+
+    <footer>
+      After Nicole picks a direction, promote that file to <code>index.html</code>. Current public default: <a href="index.html">index.html</a> (same idea as concept D).
+    </footer>
+  </div>
+</body>
+</html>

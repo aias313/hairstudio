@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concept E — Organic · Hair by Nicole</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --clay: #c67b5c;
+      --sage: #6d7f6a;
+      --cream: #f7f3eb;
+      --bark: #3d3832;
+      --mist: #e8e4db;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Hanken Grotesk", system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--bark);
+      font-size: 16px;
+      line-height: 1.65;
+      min-height: 100dvh;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.4;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M0 40 Q20 20 40 40 T80 40' fill='none' stroke='%236d7f6a' stroke-opacity='0.08'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+    .preview-strip {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 12px;
+      background: var(--sage);
+      color: var(--cream);
+    }
+    .preview-strip a { color: #fff; text-decoration: none; }
+    .wrap { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 36px clamp(20px, 4vw, 40px) 64px; }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .logo {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--bark);
+      text-decoration: none;
+    }
+    .logo em { font-style: italic; font-weight: 500; color: var(--clay); }
+    .btn {
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      background: var(--clay);
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(198, 123, 92, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(198, 123, 92, 0.4); }
+    .wave {
+      height: 24px;
+      margin-bottom: 28px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 20 Q150 0 300 20 T600 20 T900 20 T1200 20 L1200 40 L0 40 Z' fill='%236d7f6a' fill-opacity='0.15'/%3E%3C/svg%3E") center/cover no-repeat;
+      border-radius: 4px;
+    }
+    .hero {
+      margin-bottom: 40px;
+    }
+    h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(2rem, 5.5vw, 2.85rem);
+      font-weight: 600;
+      line-height: 1.12;
+      margin-bottom: 16px;
+      max-width: 14em;
+    }
+    h1 span { color: var(--sage); font-style: italic; font-weight: 500; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .tag {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--mist);
+      color: var(--sage);
+    }
+    .lede { color: #5c554c; max-width: 36em; margin-bottom: 22px; }
+    .links { display: flex; gap: 18px; font-weight: 600; font-size: 14px; }
+    .links a { color: var(--clay); text-decoration: none; border-bottom: 2px solid rgba(198, 123, 92, 0.35); }
+    .links a:hover { border-color: var(--clay); }
+    figure.banner {
+      margin: 0 0 40px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 3px solid rgba(109, 127, 106, 0.25);
+    }
+    figure.banner img {
+      width: 100%;
+      aspect-ratio: 21/9;
+      object-fit: cover;
+      display: block;
+      min-height: 140px;
+    }
+    figcaption {
+      font-size: 12px;
+      color: #6b655c;
+      padding: 14px 18px;
+      background: var(--mist);
+      line-height: 1.45;
+    }
+    figcaption strong { color: var(--bark); }
+    h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: var(--sage);
+    }
+    .pill-grid {
+      display: grid;
+      gap: 14px;
+    }
+    @media (min-width: 560px) {
+      .pill-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .pill {
+      background: #fff;
+      border-radius: 20px;
+      padding: 22px 20px;
+      border: 1px solid rgba(109, 127, 106, 0.2);
+      box-shadow: 0 8px 30px rgba(61, 56, 50, 0.06);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .pill:hover { border-color: var(--sage); transform: translateY(-2px); }
+    .pill h3 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+    .pill p { font-size: 14px; color: #6b655c; margin-bottom: 12px; }
+    .pill .p { font-weight: 700; color: var(--clay); font-size: 15px; }
+    .fine { font-size: 13px; font-style: italic; color: #6b655c; margin-top: 18px; }
+    .cta {
+      margin-top: 40px;
+      padding: 36px 28px;
+      border-radius: 24px;
+      background: linear-gradient(160deg, var(--sage) 0%, #5a6b57 100%);
+      color: var(--cream);
+      text-align: center;
+    }
+    .cta p { opacity: 0.95; margin-bottom: 18px; }
+    .cta .btn { background: var(--cream); color: var(--bark); box-shadow: none; }
+    .cta .btn:hover { background: #fff; }
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 13px;
+      color: #6b655c;
+    }
+    footer a { color: var(--bark); font-weight: 600; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <p class="preview-strip"><a href="../present.html">← All concepts</a> · <strong>E · Organic / natural</strong></p>
+  <div class="wrap">
+    <header>
+      <a class="logo" href="#">Hair <em>by Nicole</em></a>
+      <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">Book</a>
+    </header>
+
+    <div class="wave" aria-hidden="true"></div>
+
+    <div class="hero">
+      <div class="tags">
+        <span class="tag">Kanata</span>
+        <span class="tag">Private studio</span>
+        <span class="tag">By appointment</span>
+      </div>
+      <h1>Hair that grows with you — <span>rooted</span> in care.</h1>
+      <p class="lede">Independent stylist: thoughtful cuts, colour that suits your routine, and a calm room with no rush and no crowd.</p>
+      <div class="links">
+        <a href="https://instagram.com/hairbynicole" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:hello@hairbynicole.ca">Email</a>
+      </div>
+    </div>
+
+    <figure class="banner">
+      <img
+        src="https://placehold.co/840x360/d4e0d2/4a5a48/png?text=Studio+with+plants+%2B+natural+light"
+        alt="Placeholder: sun-filled studio with plants, linen curtain, ceramic vessels — earthy calm, not sterile."
+        width="840"
+        height="360"
+      />
+      <figcaption><strong>Image brief:</strong> Natural textures — wood, linen, greenery, soft daylight. Avoid neon or glossy stock salon looks.</figcaption>
+    </figure>
+
+    <section id="services">
+      <h2>What grows here</h2>
+      <div class="pill-grid">
+        <div class="pill">
+          <h3>Cut &amp; style</h3>
+          <p>Every length &amp; texture, blow-dry finish.</p>
+          <span class="p">from $65</span>
+        </div>
+        <div class="pill">
+          <h3>Colour &amp; highlights</h3>
+          <p>Full colour, balayage, toning — your tone.</p>
+          <span class="p">from $120</span>
+        </div>
+        <div class="pill">
+          <h3>Balayage &amp; blonding</h3>
+          <p>Sun-washed dimension, easy upkeep.</p>
+          <span class="p">from $180</span>
+        </div>
+        <div class="pill">
+          <h3>Treatments &amp; events</h3>
+          <p>Deep care &amp; special occasions — ask when you book.</p>
+          <span class="p">from $80</span>
+        </div>
+      </div>
+      <p class="fine">Starting prices; your quote reflects time, length, and goals.</p>
+    </section>
+
+    <div class="cta" id="book">
+      <p>Tuesday–Saturday · Full address in your booking email.</p>
+      <a class="btn" href="https://hairbynicole.setmore.com" target="_blank" rel="noopener">Choose a time</a>
+    </div>
+
+    <footer id="contact">
+      © <span id="y"></span> Hair by Nicole ·
+      <a href="mailto:hello@hairbynicole.ca">hello@hairbynicole.ca</a><br />
+      Tue–Thu 10–7 · Fri 9–6 · Sat 9–5 · Sun–Mon closed
+    </footer>
+  </div>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
